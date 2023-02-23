@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
+
 import {
   Box,
   Input,
@@ -9,14 +13,16 @@ import {
   FormLabel,
   Button,
   FormErrorMessage,
-  Link,
   Flex,
   Heading,
   Checkbox,
   RadioGroup,
   Radio,
+
+  Spacer,
 } from "@chakra-ui/react";
-import { ArrowBackIcon } from "@chakra-ui/icons";
+import { ArrowBackIcon, AddIcon } from "@chakra-ui/icons";
+
 
 import { Select } from "chakra-react-select";
 
@@ -36,9 +42,12 @@ const states = [
 ]
 
 
-const PracticeForm = ({ values }) => {
+
+const PracticeForm = () => {
+  const { districts, cities } = useSelector((state) => state.practice);
 
   const [companyName, setCompanyName] = useState([])
+  
 
   const {
     register,
@@ -73,6 +82,18 @@ const PracticeForm = ({ values }) => {
         <Heading as="h3" size="lg" color="gray.600">
             MEM
         </Heading>
+
+
+        <Spacer />
+
+        <Link to="/add_district">
+          <Button colorScheme="blue">
+            <AddIcon w={4} h={4} pr={2} />
+              Add Districts
+          </Button>
+        </Link>
+
+
       </Flex>
     </Box>
 
@@ -154,6 +175,72 @@ const PracticeForm = ({ values }) => {
             )}
           />
 
+
+          <Controller
+            control={control}
+            name="district"
+            rules={{
+              required: "Please Select District.",
+            }}
+            render={({
+              field: { onChange, onBlur, value, name, ref },
+              fieldState: { error },
+            }) => (
+              <FormControl isInvalid={!!error}>
+                <FormLabel color="gray.600"> District </FormLabel>
+                <Select
+                  name={name}
+                  ref={ref}
+                  onChange={(e) => {
+                    onChange(e);
+                  }}
+                  onBlur={onBlur}
+                  value={value}
+                  options={districts}
+                  getOptionLabel={(e) => e.label}
+                  getOptionValue={(e) => e.value}
+                  placeholder="Select District"
+                  closeMenuOnSelect={true}
+                />
+                <FormErrorMessage>
+                  {error && error.message}
+                </FormErrorMessage>
+              </FormControl>
+            )}
+          />
+
+          <Controller
+            control={control}
+            name="city"
+            rules={{
+              required: "Please Select Cities.",
+            }}
+            render={({
+              field: { onChange, onBlur, value, name, ref },
+              fieldState: { error },
+            }) => (
+              <FormControl isInvalid={!!error}>
+                <FormLabel color="gray.600"> Cities </FormLabel>
+                <Select
+                  name={name}
+                  ref={ref}
+                  onChange={(e) => {
+                    onChange(e);
+                  }}
+                  onBlur={onBlur}
+                  value={value}
+                  options={cities}
+                  getOptionLabel={(e) => e.label}
+                  getOptionValue={(e) => e.value}
+                  placeholder="Select Cities"
+                  closeMenuOnSelect={true}
+                />
+                <FormErrorMessage>
+                  {error && error.message}
+                </FormErrorMessage>
+              </FormControl>
+            )}
+          />
 
           <Controller
             control={control}
