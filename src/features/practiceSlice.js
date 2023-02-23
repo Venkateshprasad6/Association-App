@@ -37,16 +37,15 @@ export const practiceSlice = createSlice({
   name: "practice",
   initialState,
   reducers: {
-    //actionCrators
-    addDistricts: (state, { payload }) => (state = { ...state , districts: addDistrict(payload) }),
-    addCities: (state, { payload }) => (state = { ...state , cities: payload}),
+    addDistricts: (state, { payload }) => (state = { ...state, districts: addDistrict(state,payload) }),
+    addCities: (state, { payload }) => (state = { ...state, cities: payload}),
   },
 });
 
-function addDistrict(data) {
-    return initialState.districts.concat(data)
+
+function addDistrict(state,data) {
+    return state.districts.concat(data)
 }
 
 export const { addDistricts, addCities } = practiceSlice.actions;
-
 export default practiceSlice.reducer;
