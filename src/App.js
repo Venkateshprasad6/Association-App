@@ -2,20 +2,17 @@ import * as React from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
 import { Routes, Route } from "react-router-dom";
 
-
-import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
-import Members from './pages/Members';
 import Layout from './pages/Layout';
+import PracticeForm from './pages/practice-form/practiceform';
 
 function App() {
   return (
     <ChakraProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="members" element={<Members />} />
+          <Route path="practice_form" element={<PracticeForm />} />
         </Route>
       </Routes>
 

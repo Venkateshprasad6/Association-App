@@ -12,6 +12,9 @@ import {
   Link,
   Flex,
   Heading,
+  Checkbox,
+  RadioGroup,
+  Radio,
 } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 
@@ -33,7 +36,7 @@ const states = [
 ]
 
 
-const Members = ({ values }) => {
+const PracticeForm = ({ values }) => {
 
   const [companyName, setCompanyName] = useState([])
 
@@ -92,7 +95,7 @@ const Members = ({ values }) => {
           </FormControl>
 
           <FormControl isInvalid={errors.date_of_birth}>
-            <FormLabel color="gray.600"> Start Date</FormLabel>
+            <FormLabel color="gray.600"> Date Of Birth </FormLabel>
             <Input
               type="date"
               {...register("date_of_birth", {
@@ -108,9 +111,9 @@ const Members = ({ values }) => {
             <FormLabel color="gray.600"> Age </FormLabel>
             <Input
               type="number"
-              placeholder="No.of Months"
+              placeholder="Age"
               {...register("age", {
-                required: "Please Enter Number of months",
+                required: "Please Enter Age",
               })}
             />
             <FormErrorMessage>
@@ -120,9 +123,9 @@ const Members = ({ values }) => {
 
           <Controller
             control={control}
-            name="member"
+            name="state"
             rules={{
-              required: "Please Enter Cliamed member.",
+              required: "Please Select State.",
             }}
             render={({
               field: { onChange, onBlur, value, name, ref },
@@ -163,13 +166,12 @@ const Members = ({ values }) => {
               fieldState: { error },
             }) => (
               <FormControl isInvalid={!!error}>
-                <FormLabel color="gray.600"> State </FormLabel>
+                <FormLabel color="gray.600"> Company </FormLabel>
                 <Select
                   name={name}
                   ref={ref}
                   onChange={(e) => {
                     onChange(e);
-                    // onChange({xxx:e.company.name,yyy:e.id,});
                   }}
                   onBlur={onBlur}
                   value={value}
@@ -186,6 +188,61 @@ const Members = ({ values }) => {
             )}
           />
 
+          <FormControl isInvalid={errors.language}>
+            <FormLabel color="gray.600"> Known languages </FormLabel>
+            <Stack spacing={[1, 5]} direction={['column', 'row']}>
+              <Checkbox size='md' colorScheme='blue' value="tamil"
+                {...register("language",{
+                  required: "Please Select",
+                })}
+              >
+                Tamil
+              </Checkbox>
+              <Checkbox size='md' colorScheme='blue' value="hindi"
+                {...register("language",{
+                  required: "Please Select",
+                })}
+              >
+                Hindi
+              </Checkbox>
+              <Checkbox size='md' colorScheme='blue' value="english"
+                {...register("language",{
+                  required: "Please Select",
+                })}
+              >
+                English
+              </Checkbox>
+            </Stack>
+            <FormErrorMessage>
+              {errors.language && errors.language.message}
+            </FormErrorMessage>
+          </FormControl> 
+
+          <FormControl isInvalid={errors.gender}>
+            <FormLabel color="gray.600"> Gender </FormLabel>
+            <RadioGroup>
+              <Stack direction='row'>
+                <Radio value='male'  
+                {...register("gender",{
+                required: "Please Select",
+              })}>Male</Radio>
+                <Radio value='female'  
+                {...register("gender",{
+                required: "Please Select",
+              })}>Female</Radio>
+                <Radio value='other'  
+                {...register("gender",{
+                required: "Please Select",
+              })}>Other</Radio>
+              </Stack>
+            </RadioGroup>
+            <FormErrorMessage>
+              {errors.gender && errors.gender.message}
+            </FormErrorMessage>
+          </FormControl> 
+
+
+          
 
           <Button type="submit" colorScheme="blue">
             Next
@@ -197,4 +254,4 @@ const Members = ({ values }) => {
   );
 };
 
-export default Members;
+export default PracticeForm;

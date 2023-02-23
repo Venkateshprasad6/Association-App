@@ -16,8 +16,6 @@ import {
 import {
   FiHome,
   FiTrendingUp,
-  FiCompass,
-  FiStar,
   FiSettings,
   FiMenu,
 } from 'react-icons/fi';
@@ -25,9 +23,7 @@ import {
 const LinkItems = [
   { name: 'Home', icon: FiHome, to:'/'},
   { name: 'Dashboard', icon: FiTrendingUp, to:'dashboard' },
-  { name: 'Members', icon: FiCompass, to:'members' },
-  { name: 'Favourites', icon: FiStar },
-  { name: 'Settings', icon: FiSettings },
+  { name: 'Practice Form', icon: FiSettings, to:'practice_form' },
 ];
 
 export default function Sidebar({ children }) {
