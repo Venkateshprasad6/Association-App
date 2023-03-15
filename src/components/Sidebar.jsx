@@ -23,7 +23,7 @@ import {
 const LinkItems = [
   { name: 'Home', icon: FiHome, to:'/'},
   { name: 'Dashboard', icon: FiTrendingUp, to:'dashboard' },
-  { name: 'Practice Form', icon: FiSettings, to:'practice_form' },
+  { name: 'Practice Form', icon: FiSettings, to:'practice_list' },
 ];
 
 export default function Sidebar({ children }) {

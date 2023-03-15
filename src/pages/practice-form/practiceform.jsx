@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import {usePostPracticeMutation} from "../../services/practiceformAPI";
 
 
 import {
@@ -41,13 +42,10 @@ const states = [
   }
 ]
 
-
-
 const PracticeForm = () => {
   const { districts, cities } = useSelector((state) => state.practice);
-
-  const [companyName, setCompanyName] = useState([])
-  
+  const [companyName, setCompanyName] = useState([]);
+  const [PostPracticeform] = usePostPracticeMutation();
 
   const {
     register,
@@ -57,8 +55,21 @@ const PracticeForm = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const { company : {company:{name},id},...others } = data;
-    console.log( id, name, others );
+    const { company : {company:{name},id} } = data;
+    console.log( id, name );
+
+    PostPracticeform ({
+      name: data.name,
+      company:name,
+      city: data.city.label,
+      district: data.district.label,
+      state: data.state.label,
+      date_of_birth: data.date_of_birth,
+      age: Number( data.age),
+      language: data.language[0],
+      gender: data.gender,
+    }).unwrap();
+
   };
 
   async function getCompany(){
@@ -76,7 +87,7 @@ const PracticeForm = () => {
     <>
     <Box bg="white" p={3} mb={5} style={{ borderRadius: "10px" }}>
       <Flex alignItems='center' gap={2}>
-        <Link to="/chit">
+        <Link to="/practice_list">
           <ArrowBackIcon w={6} h={6} />
         </Link>
         <Heading as="h3" size="lg" color="gray.600">
@@ -326,13 +337,10 @@ const PracticeForm = () => {
             <FormErrorMessage>
               {errors.gender && errors.gender.message}
             </FormErrorMessage>
-          </FormControl> 
-
-
-          
+          </FormControl>           
 
           <Button type="submit" colorScheme="blue">
-            Next
+            Submit
           </Button>
         </Stack>
       </Box>

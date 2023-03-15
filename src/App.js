@@ -7,6 +7,7 @@ import Layout from './pages/Layout';
 import PracticeForm from './pages/practice-form/practiceform';
 
 import AddDistricts from './pages/practice-form/adddistrict';
+import PracticeList from './pages/practice-form/practicelist';
 
 
 function App() {
@@ -15,10 +16,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="practice_form" element={<PracticeForm />} />
-
+          <Route path="practice_list" element={<PracticeList />} />
+          <Route path="create_practice" element={<PracticeForm />} />
           <Route path="add_district" element={<AddDistricts />} />
-
+          <Route path="add_district" element={<AddDistricts />} />
         </Route>
       </Routes>
 
