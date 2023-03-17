@@ -23,6 +23,7 @@ import {
 const LinkItems = [
   { name: 'Home', icon: FiHome, to:'/'},
   { name: 'Dashboard', icon: FiTrendingUp, to:'dashboard' },
+  { name: 'Expenses', icon: FiTrendingUp, to:'expenses' },
   { name: 'Practice Form', icon: FiSettings, to:'practice_list' },
 ];
 

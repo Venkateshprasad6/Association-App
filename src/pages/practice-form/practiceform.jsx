@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {usePostPracticeMutation} from "../../services/practiceformAPI";
 
-
 import {
   Box,
   Input,
