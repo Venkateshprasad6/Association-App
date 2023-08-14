@@ -18,13 +18,10 @@ import {
   Checkbox,
   RadioGroup,
   Radio,
-
-  Spacer,
+  Spacer
 } from "@chakra-ui/react";
 import { ArrowBackIcon, AddIcon } from "@chakra-ui/icons";
-
-
-import { Select } from "chakra-react-select";
+import { Select } from "chakra-react-select"
 
 const states = [
   {
@@ -52,11 +49,11 @@ const PracticeForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  
   const onSubmit = async (data) => {
     const { company : {company:{name},id} } = data;
     console.log( id, name );
-
+    
     PostPracticeform ({
       name: data.name,
       company:name,
@@ -68,7 +65,6 @@ const PracticeForm = () => {
       language: data.language[0],
       gender: data.gender,
     }).unwrap();
-
   };
 
   async function getCompany(){

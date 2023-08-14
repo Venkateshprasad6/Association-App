@@ -8,7 +8,7 @@ export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
-      practiceformApi.middleware,
+      practiceformApi.middleware, 
       expensesApi.middleware,
       eventsApi.middleware
     ),

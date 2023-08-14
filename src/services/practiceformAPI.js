@@ -14,7 +14,7 @@ export const practiceformApi = createApi({
       query: (values) => ({
         url: "/practice-forms",
         method: "POST",
-        body: values,
+        body: values, 
       }),
     }),
   }),

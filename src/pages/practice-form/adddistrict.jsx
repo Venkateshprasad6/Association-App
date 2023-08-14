@@ -1,8 +1,7 @@
-import React from "react";
+import  React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-
-import {addDistricts} from "../../features/practiceSlice"
+import {addDistricts} from "../../features/practiceSlice";      
 
 import {
   Box,
@@ -65,7 +64,7 @@ const AddDistricts = () => {
             </FormControl> 
 
             <FormControl isInvalid={errors.label}>
-                <FormLabel color="gray.600"> Name </FormLabel>
+                <FormLabel color="gray.600"> Label </FormLabel>
                 <Input
                 type="text"
                 placeholder="Label"
