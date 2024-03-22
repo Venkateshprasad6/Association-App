@@ -14,6 +14,7 @@ import {
   Link,
   Flex,
   Heading,
+  Textarea,
 } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 
@@ -40,7 +41,7 @@ const AddDistricts = () => {
             <ArrowBackIcon w={6} h={6} />
             </Link>
             <Heading as="h3" size="lg" color="gray.600">
-                District Form
+             Add Participants
             </Heading>
         </Flex>
         </Box>
@@ -49,31 +50,31 @@ const AddDistricts = () => {
         <Box p={4} color="black" bg="white" style={{ borderRadius: "10px" }}>
             <Stack spacing={4}>
 
-            <FormControl isInvalid={errors.value}>
+            <FormControl isInvalid={errors.name}>
                 <FormLabel color="gray.600"> Name </FormLabel>
                 <Input
                 type="text"
-                placeholder="Value"
-                {...register("value", {
-                    required: "Enter Value",
+                placeholder="name"
+                {...register("name", {
+                    required: "Enter name",
                 })}
                 />
                 <FormErrorMessage>
-                {errors.value && errors.value.message}
+                {errors.name && errors.name.message}
                 </FormErrorMessage>
             </FormControl> 
 
-            <FormControl isInvalid={errors.label}>
-                <FormLabel color="gray.600"> Label </FormLabel>
-                <Input
+            <FormControl isInvalid={errors.address}>
+                <FormLabel color="gray.600"> Address </FormLabel>
+                <Textarea
                 type="text"
-                placeholder="Label"
-                {...register("label", {
-                    required: "Enter Label",
+                placeholder="Address"
+                {...register("address", {
+                    required: "Enter Address",
                 })}
                 />
                 <FormErrorMessage>
-                {errors.label && errors.label.message}
+                {errors.address && errors.address.message}
                 </FormErrorMessage>
             </FormControl>   
 

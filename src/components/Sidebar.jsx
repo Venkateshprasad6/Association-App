@@ -13,12 +13,11 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { FiHome, FiTrendingUp, FiSettings, FiMenu } from "react-icons/fi";
+import {FiTrendingUp, FiSettings, FiMenu } from "react-icons/fi";
 
 const LinkItems = [
-  { name: "Home", icon: FiHome, to: "/" },
-  { name: "Dashboard", icon: FiTrendingUp, to: "dashboard" },
-  { name: "Expenses", icon: FiTrendingUp, to: "expenses" },
+ 
+  { name: "association", icon: FiTrendingUp, to: "association" },
   { name: "Practice Form", icon: FiSettings, to: "practice_list" },
   { name: "Events", icon: FiSettings, to: "events" },
 ];
@@ -66,7 +65,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
         <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
+          Association App
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>

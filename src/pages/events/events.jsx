@@ -70,17 +70,17 @@ const Events = () => {
 
       <Box bg="white" p={3} mb={5} style={{ borderRadius: "10px" }}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <FormControl isInvalid={errors.title}>
-            <FormLabel> Title</FormLabel>
+          <FormControl isInvalid={errors.name_of_the_event}>
+            <FormLabel> Name of the Event</FormLabel>
             <Input
               type="text"
-              placeholder="title"
-              {...register("title", {
-                required: "Please Enter Title",
+              placeholder="Name of the Event"
+              {...register("name_of_the_event", {
+                required: "Please Enter Name of the Event",
               })}
             />
             <FormErrorMessage>
-              {errors.title && errors.title.message}
+              {errors.name_of_the_event && errors.name_of_the_event.message}
             </FormErrorMessage>
           </FormControl>
 

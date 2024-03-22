@@ -50,7 +50,7 @@ const Expenses = () => {
           </Link>
 
           <Heading as="h3" size="lg" color="gray.600">
-            Expenses
+            Association
           </Heading>
 
           <Spacer />
@@ -58,7 +58,7 @@ const Expenses = () => {
           <Link to="/add_district">
             <Button colorScheme="blue">
               <AddIcon w={4} h={4} pr={2} />
-              Create Expenses
+             Add Participants
             </Button>
           </Link>
         </Flex>
@@ -66,31 +66,31 @@ const Expenses = () => {
 
       <Box bg="white" p={3} mb={5} style={{ borderRadius: "10px" }}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <FormControl isInvalid={errors.title}>
-            <FormLabel> Title</FormLabel>
+          <FormControl isInvalid={errors.name_of_the_association}>
+            <FormLabel> Name of the Association</FormLabel>
             <Input
               type="text"
-              placeholder="title"
-              {...register("title", {
-                required: "Please Enter Title",
+              placeholder="Name of the Association"
+              {...register("name_of_the_association", {
+                required: "Please Enter Name of the Association",
               })}
             />
             <FormErrorMessage>
-              {errors.title && errors.title.message}
+              {errors.name_of_the_association && errors.name_of_the_association.message}
             </FormErrorMessage>
           </FormControl>
-
-          <FormControl isInvalid={errors.description}>
-            <FormLabel>Description</FormLabel>
+          
+          <FormControl isInvalid={errors.location}>
+            <FormLabel>Location</FormLabel>
             <Input
               type="text"
-              placeholder="description"
-              {...register("description", {
-                required: "Please Enter Description",
+              placeholder="Location"
+              {...register("location", {
+                required: "Please Enter Location",
               })}
             />
             <FormErrorMessage>
-              {errors.description && errors.description.message}
+              {errors.location && errors.location.message}
             </FormErrorMessage>
           </FormControl>
           <br />
